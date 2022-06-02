@@ -11,6 +11,8 @@ public class Main extends Canvas implements Runnable {
 	private Thread thread;
 	private boolean running = false;
 	
+	private Handler handler;
+	
 	public Main() {
 		new Window(windowWidth,  windowHeight, "GameTitle is comming soon", this);
 	}
@@ -19,6 +21,7 @@ public class Main extends Canvas implements Runnable {
 		thread = new Thread(this);
 		thread.start();
 		running = true;
+		handler = new Handler();
 	}
 	
 	public synchronized void stop() {
@@ -62,7 +65,7 @@ public class Main extends Canvas implements Runnable {
 	}
 	
 	private void tick() {
-		
+		handler.tick();
 	}
 	
 	private void render() {
@@ -76,6 +79,8 @@ public class Main extends Canvas implements Runnable {
 		
 		g.setColor(Color.gray);
 		g.fillRect(0, 0, windowWidth, windowHeight);
+		
+		handler.render(g);
 		
 		g.dispose();
 		bs.show();
