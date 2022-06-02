@@ -2,6 +2,9 @@ import java.awt.Graphics;
 
 public abstract class Entity {
 
+	protected int windowWidth;
+	protected int windowHeight;
+	
 	protected int x;
 	protected int y;
 	protected int width;
@@ -10,8 +13,11 @@ public abstract class Entity {
 	protected int speedX;
 	protected int speedY;
 	
-	public Entity(int x, int y) {
+	public Entity(int x, int y, int windowWidth, int windowHeight) {
 		this.x = x;
+		this.y = y;
+		this.windowWidth = windowWidth;
+		this.windowHeight = windowHeight;
 	}
 	
 	public abstract void tick();

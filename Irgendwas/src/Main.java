@@ -13,6 +13,7 @@ public class Main extends Canvas implements Runnable {
 	
 	private Handler handler;
 	
+	//kompliziertes Zeug das ich aus einem YT Tutorial abgeschrieben habe	https://www.youtube.com/watch?v=1gir2R7G9ws&t=374s
 	public Main() {
 		new Window(windowWidth,  windowHeight, "GameTitle is comming soon", this);
 	}
@@ -21,7 +22,7 @@ public class Main extends Canvas implements Runnable {
 		thread = new Thread(this);
 		thread.start();
 		running = true;
-		handler = new Handler();
+		handler = new Handler(windowWidth, windowHeight);
 	}
 	
 	public synchronized void stop() {
